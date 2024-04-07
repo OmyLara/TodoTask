@@ -1,7 +1,7 @@
 
 
         
-        <div class="bg-teal-50 m-auto mt-8 w-full rounded-lg border-2 shadow-md shadow-black min-h-[80%] sm: bg-teal-50 m-auto mt-8 w-5/6 rounded-lg border-2 w-[80%] shadow-md shadow-black min-h-[80%] " style="border-color: #2A326C;">
+        <div class=" bg-teal-50 m-auto mt-8 w-5/6 rounded-lg border-2 w-[80%] shadow-md shadow-black min-h-[80%] " style="border-color: #2A326C;">
 
           <div class="card " style="background-color: #2A326C;">
             <h4 class="text-white flex justify-center mt-4 text-xl">To Do Tasks App</h4>
@@ -14,7 +14,7 @@
                   <button type="button" class="w-[100px] md: bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-0 ml-[20%] mt-4 w-1/6 h-2/3 flex justify-center align-center" (click)="addTodo()">Add Task</button>
             </div>  
 
-            <div class="md:inline-flex">
+            <div class="inline-flex">
             <button class="md: bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  m-1 ml-10  w-auto h-1/2  align-center rounded-md " (click)="changeFilter('all')" [class.active]="filter() === 'all'">All</button>
             <button class="md: bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  m-1 w-auto h-1/2  align-center rounded-md" (click)="changeFilter('completed')" [class.active]="filter() === 'completed'">Completed</button>
 

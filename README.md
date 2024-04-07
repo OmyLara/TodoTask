@@ -1,27 +1,21 @@
 # ListaTareas
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.3.
+Este proyecto fue creado con [Angular CLI](https://github.com/angular/angular-cli) version 17.3.3. y NG-ZORRO versión 17.3.0. 
+Para estilos ser utilizó principlamnete Tailwind
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Correr ng serve -o para abrirlo y después Navega a `http://localhost:4200/`.
+O bien, ingresa a https://addyourtasks-app.netlify.app/todo para verlo en tu localstorage.
 
-## Code scaffolding
+## Detalles
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+todo.component.html => Contiene todo el HTML incluído con los estilos de TailwindCSS
+app.routes.ts => Se creó una ruta para el sitio /todo
+todo.component.ts => Contiene toda la lógica que permite que la app funcione, desde agregar una tarea nueva, editarla, eliminarla y los filtros para saber si la tarea fue completada o aún no
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## How it works
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Ingresa una tarea de mínimo 3 caracteres en"Enter new task", an dar enter con el teclado o dar click en "Add Task" aparecerá en el listado.
+La tarea puede editarse o eliminarse y al dar click en el checkbox se agregará dicha tarea al filtro de "Completed"
