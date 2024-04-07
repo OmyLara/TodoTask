@@ -1,8 +1,7 @@
-import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FilterType, TodoModel } from '../../models/todo';
 import { FormControl,Validators, ReactiveFormsModule } from '@angular/forms';
-import { effect, computed } from '@angular/core';
+import { effect, computed, OnInit, Component, signal} from '@angular/core';
 
 @Component({
   selector: 'app-todo',
@@ -11,7 +10,7 @@ import { effect, computed } from '@angular/core';
   templateUrl: './todo.component.html',
   styleUrl: './todo.component.css'
 })
-export class TodoComponent {
+export class TodoComponent implements OnInit{
   todoList= signal <TodoModel []>([
     
   ]);
