@@ -1,0 +1,51 @@
+
+
+        
+        <div class="col grid-cols-6 bg-teal-50 m-auto mt-8 w-5/6 rounded-lg border-2 shadow-md shadow-black min-h-[80%]" style="border-color: #2A326C;">
+
+          <div class="card " style="background-color: #2A326C;">
+            <h4 class="text-white flex justify-center mt-4 text-xl">To Do Tasks App</h4>
+          </div>
+          <div>
+            <div class="grid gap-6 mb-6 md:grid-cols-2 mx-* my-*">
+              
+                  <input type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-4/5 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-4 ml-[40%]" placeholder="Enter New Task" [formControl]="newTodo" (keydown.enter)="addTodo()"/>
+                  
+                  <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-0 ml-[20%] mt-4 w-1/6 h-2/3 flex justify-center align-center" (click)="addTodo()">Add Task</button>
+            </div>  
+
+            <div class="inline-flex">
+            <button class=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  m-1 ml-10  w-auto h-1/2  align-center rounded-md " (click)="changeFilter('all')" [class.active]="filter() === 'all'">All</button>
+            <button class=" bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  m-1 w-auto h-1/2  align-center rounded-md" (click)="changeFilter('completed')" [class.active]="filter() === 'completed'">Completed</button>
+
+            </div>
+
+            
+
+            <div class="todoList overflow-y-auto h-auto">
+                @for(todo of todoListFiltered(); track todo.id){
+
+                    @if(todo.editing){
+                        <div class="todo-editing mt-4">
+                            <input type="text" placeholder="Editar tarea" [value]="todo.title" (keydown.enter)="saveEditing(todo.id,$event)">
+                        </div>
+                    }
+
+                    <div class="p-2 inline-flex w-full h-auto">
+                        <div class="w-[30%]  overflow-scroll mr-2 ">{{todo.title}}</div>
+                        <button class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  m-1 ml-[30%] w-auto h-1/2  align-center rounded-md" (click)="editTask(todo.id)">Edit Task</button>
+                        <button class="btn  bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4  m-1  w-[50px] h-1/2 flex justify-center align-center rounded-md " (click)='removeTodo(todo.id)'>Delete</button>
+
+                        <div class=" grid-cols-2 ">
+                          <label for="compeltado" class="ml-3 h-1/2" >Check for completed</label><br>
+                          <input id="completado" type="checkbox" [checked]="todo.completed" (click)="toggleTodo(todo.id)" class="ml-[50%] mt-1/2 h-1/2">
+                        </div>
+                    </div>
+                    <hr>
+       
+                }
+
+              </div>
+          </div>
+        </div>
+
