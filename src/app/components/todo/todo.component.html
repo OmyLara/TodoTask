@@ -1,24 +1,22 @@
 
 
         
-        <div class=" bg-teal-50 m-auto mt-8 w-5/6 rounded-lg border-2 w-[80%] shadow-md shadow-black min-h-[80%] " style="border-color: #2A326C;">
+        <div class=" bg-teal-50 m-auto mt-8 w-[80%] rounded-lg border-2 shadow-md shadow-black min-h-[80%] min-w-[250px] " style="border-color: #2A326C;">
 
-          <div class="card " style="background-color: #2A326C;">
-            <h4 class="text-white flex justify-center mt-4 text-xl">To Do Tasks App</h4>
+          <div class="card ">
+            <h4 class="text-blue-700 text-bold flex justify-center mt-4 text-5xl sm:text-8xl"><span class="text-slate-600 font-sans">TO·</span> DO</h4>
           </div>
-          <div class="md:flex flex-col">
-            <div class="md:grid gap-6 mb-6 md:grid-cols-2 mx-* my-*">
-              
-                  <input type="text" id="first_name" class="ml-auto mr-auto md:w-4/6 ml-auto lg:bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-4 " placeholder="Enter New Task" [formControl]="newTodo" (keydown.enter)="addTodo()"/>
-                  
-                  <button type="button" class="w-[100px] md: bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded m-0 ml-[20%] mt-4 w-1/6 h-2/3 flex justify-center align-center" (click)="addTodo()">Add Task</button>
+          <div class="flex flex-col">
+            <div class="grid w-full mt-3 mb-3 justify-center sm:inline-flex ">
+                  <input type="text" id="first_name" class="placeholder:text-slate-500  bg-white w-[90%] m-auto sm:mr-1 rounded-md py-3 px-3 text-slate-700 border-2 border-slate-700 sm:w-[50%]" placeholder="Enter New Task" [formControl]="newTodo" (keydown.enter)="addTodo()"/>
+                  <button type="button" class="text-white border-2 border-slate-200 font-bold rounded-md bg-blue-500 hover:bg-blue-700 w-auto mb-4 mt-3 sm:mx-auto sm:px-3 sm:py-3" (click)="addTodo()">Add Task</button>
             </div>  
 
-            <div class="inline-flex">
-            <button class="md: bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  m-1 ml-10  w-auto h-1/2  align-center rounded-md " (click)="changeFilter('all')" [class.active]="filter() === 'all'">All</button>
-            <button class="md: bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  m-1 w-auto h-1/2  align-center rounded-md" (click)="changeFilter('completed')" [class.active]="filter() === 'completed'">Completed</button>
+            <div class="inline-flex mx-auto w-full justify-center mb-2">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold mr-2 rounded-lg px-3 py-2" (click)="changeFilter('all')" [class.active]="filter() === 'all'">All</button>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold ml-1 rounded-lg px-3 py-2" (click)="changeFilter('completed')" [class.active]="filter() === 'completed'">Completed</button>
 
-            </div>
+            </div><hr>
 
             
 
@@ -31,14 +29,16 @@
                         </div>
                     }
 
-                    <div class="inline-flex mx-4 md:p-2 w-full h-auto ">
-                        <div class="w-[800%] wrap  sm:w-[30%] overflow-scroll mr-2 flex-wrap">{{todo.title}}</div>
-                        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  mx-2 ml-[20%] mt-1 text-[10px] w-auto h-1/2 align-center rounded sm:bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4  mx-2 ml-[20%] mt-1  w-[200px] h-1/2 align-center rounded  md:w-auto  ml-[30%]" (click)="editTask(todo.id)">Edit Task</button>
-                        <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4  m-1 mt-2 w-[50px] h-1/2 flex justify-center align-center rounded-md sm:w-[25px]  md:w-[50px]" (click)='removeTodo(todo.id)'>Delete</button>
-
-                        <div class="w-full grid md:grid-cols-2 ">
-                          <label for="completado" class=" hidden sm:block h-1/2 text-sm lg: ml-3 text-wrap" >Check for completed</label><br>
-                          <input id="completado" type="checkbox" [checked]="todo.completed" (click)="toggleTodo(todo.id)" class="w-[15px] h-[15px] sm: ml-[25%] mt-1/2 ">
+                    <div class="grid justify-center w-full sm:inline-flex sm:mb-2 sm:mt-2">
+                        <div class="text-center w-full mb-2 mt-2 sm:w-[50%]">{{todo.title}}</div>
+                        <div class="w-auto justify-center mx-auto sm:content-center">
+                          <button class="bg-[#006d46] hover:bg-[#00986c] text-white font-bold justify-center px-2 py-2 mx-auto mr-1 gap-1 rounded" (click)="editTask(todo.id)">Edit Task</button>
+                          <button class="bg-red-500 hover:bg-red-600 text-white font-bold justify-center px-2 py-2 mx-auto ml-1 rounded" (click)='removeTodo(todo.id)'>Delete</button>
+                        </div>
+       
+                        <div class=" justify-center mx-auto inline-flex mt-2 mb-2 sm:ml-1 sm:grid">
+                          <label for="completado" class=" justify-center mx-auto" >Check for completed</label><br>
+                          <input id="completado" type="checkbox" [checked]="todo.completed" (click)="toggleTodo(todo.id)" class="ml-3 sm:mt-0">
                         </div>
                     </div>
                     <hr>
